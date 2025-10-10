@@ -78,6 +78,9 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter();
+
 
 const username = ref('');
 const password = ref('');
@@ -92,7 +95,7 @@ const registerUser = () => {
   if (!storedUser) {
     alert('用户不存在，请先注册！');
     // 跳转到注册页面
-    window.location.href = 'http://localhost:5173/register'; 
+    router.push('/register')
   }
 
   const userData = JSON.parse(storedUser);
@@ -108,10 +111,8 @@ const registerUser = () => {
   username.value = '';
   password.value = '';
 
-  // 登陆成功，0.5秒后跳转到官网页
-  setTimeout('location.href = "http://localhost:5173/Official_Website"' , 500);
-  // // 方式1：使用 window.location.href
-  // router.push('/Official_Website'); // 方式2：如果此路由已在 Vue Router 配置
+  // 登陆成功后跳转到官网页
+  router.push('/')
 };
 </script>
 <style scoped>

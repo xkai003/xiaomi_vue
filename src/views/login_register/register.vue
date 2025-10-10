@@ -60,6 +60,8 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 
 const username = ref('');
 const password = ref('');
@@ -73,8 +75,8 @@ const registerUser = () => {
   // 存储用户信息
   const userData = { username: username.value, password: password.value };
   localStorage.setItem(username.value, JSON.stringify(userData));
-  // 0.5秒后跳转到登陆页面
-  setTimeout('location.href = "http://localhost:5173/login"' , 500);
+  // 跳转到登陆页面
+  router.push('/login')
   // 清空输入框
   username.value = '';
   password.value = '';
