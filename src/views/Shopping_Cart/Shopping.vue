@@ -76,22 +76,18 @@
 <script>
 export default {
   data() {
+    // 1. 从本地获取数据，如果不存在，则默认为一个空数组 []
+    const cartItemsFromStorage = JSON.parse(localStorage.getItem("cartItems")) || [];
+    console.log("从本地存储获取到的数据：", cartItemsFromStorage);
     return {
+      // 将获取到的数据传递到 defaultArr 数组中
       defaultArr: [
         {
-          id: 1,
-          imge: new URL('/src/assets/index/TwoXiaomi/REDMI Watch 5.jpg', import.meta.url).href,
-          name: "REDMI Watch 5",
-          price: 599,
-          quantity: 1,
-          isChecked: false
-        },
-        {
-          id: 2,
-          imge: new URL('/src/assets/index/TwoXiaomi/Xiaomi Buds 5.jpg', import.meta.url).href,
-          name: "Xiaomi Buds 5",
-          price: 679,
-          quantity: 1,
+          id: cartItemsFromStorage.id,
+          imge: cartItemsFromStorage.imge,
+          name: cartItemsFromStorage.name,
+          price: cartItemsFromStorage.price,
+          quantity: cartItemsFromStorage.quantity,
           isChecked: false
         },
       ]

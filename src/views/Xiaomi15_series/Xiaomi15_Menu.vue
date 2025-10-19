@@ -5,7 +5,7 @@
         <h2>Xiaomi 15 系列</h2>
         <span>骁龙®8至尊版｜徕卡光学镜头</span>
         <span class="red" style="font-size: 15px;">小米自营</span>
-        <span class="red" style="font-size: 25px;">6499 元</span>
+        <span class="red" style="font-size: 25px;">{{ original_price }} 元</span>
     </div>
     <div class="address">
         <div>
@@ -51,6 +51,7 @@
 export default {
     data() {
         return {
+            original_price: "6299",
             list: [
                 { id: 1, span: "选择产品", a1:"Xiaomi 15 Ultra", a2:"Xiaomi 15 Pro", a3:"Xiaomi 15", a4:"Xiaomi 15 定制版",activeKey: 'a1'},
                 { id: 2, span: "选择版本", a1:"12GB+256GB", a2:"16GB+512GB", a3:"16GB+1TB", a4:"双卫星版本",activeKey: 'a1'},
@@ -62,30 +63,51 @@ export default {
         setActive(item, key) {
             item.activeKey = key;
             console.log(`当前选择了 ${item.span} 的 ${item[key]}`);
+            // const itemkey = this.item[key]
         },
 
         // ✨ 2. [核心修改] 新增 addToCart 方法
         addToCart() {
-            // 创建一个数组来存放已选的商品信息
-            const selectedOptions = [];
+    // 创建一个数组来存放已选的【选项描述】，用于 alert
+    const selectedOptionsForAlert = [];
+    // ✨ [新增] 创建一个数组来存放已选的【值】，用于生成商品名
+    const selectedValuesForName = [];
 
-            // 遍历 list 数组中的每一个商品分类
-            for (const item of this.list) {
-                // 获取当前分类选中的 key, 例如 'a1', 'a2'
-                const activeKey = item.activeKey;
-                // 根据 key 获取对应的选中的值, 例如 "Xiaomi 15 Pro"
-                const selectedValue = item[activeKey];
-                
-                // 将分类名和选中的值组合成一个字符串，并添加到数组中
-                selectedOptions.push(`${item.span}: ${selectedValue}`);
-            }
+    // 遍历 list 数组中的每一个商品分类
+    for (const item of this.list) {
+        // 获取当前分类选中的 key, 例如 'a1', 'a2'
+        const activeKey = item.activeKey;
+        // 根据 key 获取对应的选中的值, 例如 "Xiaomi 15 Pro"
+        const selectedValue = item[activeKey];
+        
+        // 1. 将完整的描述 "分类: 值" 添加到用于 alert 的数组中
+        selectedOptionsForAlert.push(`${item.span}: ${selectedValue}`);
+        
+        // 2. ✨ [新增] 只将【值】添加到用于生成名称的数组中
+        selectedValuesForName.push(selectedValue);
+    }
 
-            // 将数组中的所有信息用换行符连接成一个完整的消息字符串
-            const message = "您已选择的商品：\n\n" + selectedOptions.join("\n");
+    // 使用 alert 显示完整的选择信息
+    const message = "您已选择的商品：\n\n" + selectedOptionsForAlert.join("\n");
+    alert(message);
 
-            // 使用 alert 显示最终的消息
-            alert(message);
-        }
+    // ✨ [核心修改] 将所有选项的值用空格连接起来，作为商品名
+    const productName = selectedValuesForName.join(' ');
+
+    // 将已选的商品信息保存到本地
+    const info = {
+        id: 3, // 注意：ID 最好是动态的
+        imge: new URL('/src/assets/index/TwoXiaomi/Xiaomi Buds 5.jpg', import.meta.url).href,
+        name: productName, // ✅ 使用我们刚刚创建的商品名
+        price: this.original_price, // 注意：价格最好也是动态的
+        quantity: 1,
+        isChecked: false
+    }
+    
+    // 这行现在可以正确执行了
+    localStorage.setItem('cartItems', JSON.stringify(info));
+    console.log("商品信息已保存:", info);
+}
     },
 }
 </script>
