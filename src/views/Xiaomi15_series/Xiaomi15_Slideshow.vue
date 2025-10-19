@@ -25,6 +25,8 @@
     methods: {
       changeImage(thumb) {
         this.topImgSrc = thumb;
+        this.$emit('changTitle',this.topImgSrc)
+        console.log("子组件接传递的图片是：",this.topImgSrc)
       },
     },
   };
