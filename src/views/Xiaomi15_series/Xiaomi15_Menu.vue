@@ -18,19 +18,20 @@
         </div>
     </div>
     <!-- product -->
-    <div class="product" v-for="item in list" :key="item.id"><!-- v-for 循环遍历数组 -->
+    <div class="product" v-for="item in list" :key="item.id">
         <span>{{ item.span }}</span>
         <div>
-            <a href="# " @click="goodsone(item)">{{ item.a1 }}</a>
-            <a href="#" @click="goodstwo(item)">{{ item.a2 }}</a>
-            <a href="# " @click="goodsthree(item)">{{ item.a3 }}</a>
-            <a href="#" @click="goodsfour(item)">{{ item.a4 }}</a>
+            <a href="#" @click="setActive(item, 'a1')" :class="{ 'active': item.activeKey === 'a1' }">{{ item.a1 }}</a>
+            <a href="#" @click="setActive(item, 'a2')" :class="{ 'active': item.activeKey === 'a2' }">{{ item.a2 }}</a>
+            <a href="#" @click="setActive(item, 'a3')" :class="{ 'active': item.activeKey === 'a3' }">{{ item.a3 }}</a>
+            <a href="#" @click="setActive(item, 'a4')" :class="{ 'active': item.activeKey === 'a4' }">{{ item.a4 }}</a>
         </div>
     </div>
 
     <div class="button">
         <div>
-            <a href="#" class="car" @click="car(num)">加入购物车</a>
+            <!-- ✨ 1. [核心修改] 更改点击事件为 addToCart -->
+            <a href="#" class="car" @click="addToCart">加入购物车</a>
             <a href="" class="live" style="">♡喜欢</a>
         </div>
     </div>
@@ -51,32 +52,44 @@ export default {
     data() {
         return {
             list: [
-                { id: 1, span: "选择产品", a1:"Xiaomi 15 Ultra", a2:"Xiaomi 15 Pro", a3:"Xiaomi 15", a4:"Xiaomi 15 定制版"},
-                { id: 2, span: "选择版本", a1:"12GB+256GB", a2:"16GB+512GB", a3:"16GB+1TB", a4:"双卫星版本"},
-                { id: 3, span: "选择颜色", a1:"黑色", a2:"白色", a3:"经典黑银", a4:"松柏绿"},
+                { id: 1, span: "选择产品", a1:"Xiaomi 15 Ultra", a2:"Xiaomi 15 Pro", a3:"Xiaomi 15", a4:"Xiaomi 15 定制版",activeKey: 'a1'},
+                { id: 2, span: "选择版本", a1:"12GB+256GB", a2:"16GB+512GB", a3:"16GB+1TB", a4:"双卫星版本",activeKey: 'a1'},
+                { id: 3, span: "选择颜色", a1:"黑色", a2:"白色", a3:"经典黑银", a4:"松柏绿",activeKey: 'a1'},
             ]
         }
     },
-    // 动作合集
     methods: {
-        // 添加
-        goodsone(item){
-            var a = item.a1
-            console.log(a)
+        setActive(item, key) {
+            item.activeKey = key;
+            console.log(`当前选择了 ${item.span} 的 ${item[key]}`);
         },
-        goodstwo(item){
-            console.log(item.a2)
-        },
-        goodsthree(item){
-            console.log(item.a3)
-        },
-        goodsfour(item){
-            console.log(item.a4)
-        },
-        // 处理点击加入购物车按钮
+
+        // ✨ 2. [核心修改] 新增 addToCart 方法
+        addToCart() {
+            // 创建一个数组来存放已选的商品信息
+            const selectedOptions = [];
+
+            // 遍历 list 数组中的每一个商品分类
+            for (const item of this.list) {
+                // 获取当前分类选中的 key, 例如 'a1', 'a2'
+                const activeKey = item.activeKey;
+                // 根据 key 获取对应的选中的值, 例如 "Xiaomi 15 Pro"
+                const selectedValue = item[activeKey];
+                
+                // 将分类名和选中的值组合成一个字符串，并添加到数组中
+                selectedOptions.push(`${item.span}: ${selectedValue}`);
+            }
+
+            // 将数组中的所有信息用换行符连接成一个完整的消息字符串
+            const message = "您已选择的商品：\n\n" + selectedOptions.join("\n");
+
+            // 使用 alert 显示最终的消息
+            alert(message);
+        }
     },
 }
 </script>
+
 <style scoped>
 .Menu{
     display: flex;
@@ -114,7 +127,6 @@ export default {
 /* product */
 .Menu .product{
     width: 100%;
-    /* background-color: #d67474; */
     margin-top: 30px;
     font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
 }
@@ -136,14 +148,19 @@ export default {
     margin-right: 20px;
     margin-top: 20px;
     text-align: center;
+    transition: all 0.2s;
 }
-.active {
-    border: 1px solid rgb(24, 230, 24); /* 激活状态时的样式 */
-}
+
 .product div a:hover{
-    border: 1px solid red;
+    border-color: red;
     color: red;
 }
+
+.product div a.active {
+  border-color: red;
+  color: red;
+}
+
 .button div .car{
     width: 45%;
     height: 50px; 
@@ -183,3 +200,4 @@ export default {
     color: #b0b0b0;
 }
 </style>
+
