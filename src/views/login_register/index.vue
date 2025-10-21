@@ -100,6 +100,10 @@ const registerUser = () => {
   }
 
   const userData = JSON.parse(storedUser);
+  if(userData.username != username.value){
+    alert("用户名错误")
+    return;
+  }
   if (userData.password !== password.value) {
     alert("密码错误！");
     return;
