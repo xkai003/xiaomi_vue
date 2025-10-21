@@ -33,9 +33,9 @@
       <div class="form">
         <div class="form-center">
           <!-- 标题 -->
-          <a href="http://localhost:5173/login" class="title">登录</a>
+          <router-link to="/login" class="title">登录</router-link>
           &nbsp;
-          <a href="http://localhost:5173/register" class="title" style="color: red;">注册</a>
+          <router-link to="/register" class="title" style="color: red;">注册</router-link>
           <!-- 输入框 -->
           <input type="text" class="input" placeholder="请输入用户名" v-model="username">
           <input type="password" class="input" placeholder="请输入密码" v-model="password">
