@@ -32,7 +32,7 @@
       </div>
       <div class="right">
         <!-- 如果 localStorage有信息就显示span文本 -->
-        <li><span style="color: #fff; line-height: 5px;" v-if="user != 'null'">你好，{{ user }}</span></li>
+        <li><span v-if="user != 'null'">你好，{{ user }}</span></li>
         <!-- 如果 localStorage有信息就显示登陆和注册按钮 -->
         <li><router-link to="/login" v-if="user == 'null'">登录</router-link></li>
         <li><router-link to="/register" v-if="user == 'null'">注册</router-link></li>
@@ -127,7 +127,12 @@ export default {
     opacity: 0;  /* 初始隐藏 */
     display: none;/* 移除项目 */
 }
-
+.TopNavigation .TopNavigation-center .right li span{
+    display: block;
+    color: #fff; 
+    line-height: 20px;
+    font-size:smaller;
+}
 /* 鼠标悬停时显示二级导航 */
 .TopNavigation li:hover .sub-nav {
     opacity: 1;
