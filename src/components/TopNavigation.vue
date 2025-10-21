@@ -31,49 +31,41 @@
         <li><a href="" style="font-size: x-small; width: 90px;">Select Location</a></li>
       </div>
       <div class="right">
-        <!-- 登陆 -->
-        <li><router-link to="/login">登录</router-link></li>
-        <!-- 注册 -->
-        <li><router-link to="/register">注册</router-link></li>
+        <!-- 如果 localStorage有信息就显示span文本 -->
+        <li><span style="color: #fff; line-height: 5px;" v-if="user != 'null'">你好，{{ user }}</span></li>
+        <!-- 如果 localStorage有信息就显示登陆和注册按钮 -->
+        <li><router-link to="/login" v-if="user == 'null'">登录</router-link></li>
+        <li><router-link to="/register" v-if="user == 'null'">注册</router-link></li>
+
         <li><a href="">信息通知</a></li>
         <li class="button"><router-link to="/Shopping_Cart">购物车</router-link></li>
       </div>
     </div>
-    <!-- <router-view></router-view> -->
   </div>
   <!-- 顶部导航 end -->
 </template>
 
 <script>
-import { ref, onMounted, onUnmounted } from "vue";
-
 export default {
-  setup() {
-    const topNav = ref(null);
-
-    const handleScroll = () => {
-      if (window.scrollY > 35) {
-        topNav.value.style.position = "fixed";
-        topNav.value.style.top = "0";
-        topNav.value.style.width = "100%";
-        topNav.value.style.zIndex = "1000"; // 确保导航栏在最上层
-        topNav.value.style.background = "black"; // 可能需要背景色，避免透明
-      } else {
-        topNav.value.style.position = "static";
-      }
+  data() {
+    return {
+      user: "null"
     };
-
-    onMounted(() => {
-      window.addEventListener("scroll", handleScroll);
-    });
-
-    onUnmounted(() => {
-      window.removeEventListener("scroll", handleScroll);
-    });
-
-    return { topNav };
   },
+  mounted() {
+    // 在组件挂载后执行
+    try {
+      // 获取localStorage的数据
+      const userData = JSON.parse(localStorage.getItem("userinfo"));
+      console.log("用户信息", userData?.username);
+      this.user = userData?.username || "null";
+    } catch (error) {
+      console.error("解析用户信息失败:", error);
+      this.user = "null";
+    }
+  }
 };
+
 </script>
 
 

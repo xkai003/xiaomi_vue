@@ -74,7 +74,8 @@ const registerUser = () => {
   alert("注册成功，即将跳转到登陆页面")
   // 存储用户信息
   const userData = { username: username.value, password: password.value };
-  localStorage.setItem(username.value, JSON.stringify(userData));
+  // localStorage.setItem(username.value, JSON.stringify(userData));
+  localStorage.setItem("userinfo", JSON.stringify(userData));
   // 跳转到登陆页面
   router.push('/login')
   // 清空输入框

@@ -91,11 +91,12 @@ const registerUser = () => {
     return;
   }
   // 从 localStorage 获取用户数据
-  const storedUser = localStorage.getItem(username.value);
+  const storedUser = localStorage.getItem("userinfo");
   if (!storedUser) {
     alert('用户不存在，请先注册！');
     // 跳转到注册页面
     router.push('/register')
+    return;
   }
 
   const userData = JSON.parse(storedUser);
