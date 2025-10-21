@@ -3,7 +3,7 @@
       <div class="box">
         <img :src="topImgSrc" alt="" id="top-img">
         <div class="imge">
-          <img v-for="(thumb, index) in thumbs" :key="index" :src="thumb" alt="" class="thumb-img" @mouseover="changeImage(thumb)">
+          <img v-for="(thumb, index) in thumbs" :key="index" :src="thumb" alt="" class="thumb-img" @click="changeImage(thumb)">
         </div>
       </div>
     </div>
@@ -25,8 +25,20 @@
     methods: {
       changeImage(thumb) {
         this.topImgSrc = thumb;
-        this.$emit('changTitle',this.topImgSrc)
-        console.log("子组件接传递的图片是：",this.topImgSrc)
+        try {
+          // 获取本地localStorage的数据
+          const cartItemsFromStorage = JSON.parse(localStorage.getItem("cartItems"));
+          
+          // 更新图片信息到购物车数据中
+          cartItemsFromStorage.imge = this.topImgSrc;
+          
+          // 保存回 localStorage
+          localStorage.setItem("cartItems", JSON.stringify(cartItemsFromStorage));
+          
+          console.log("图片已更新到购物车:", this.topImgSrc);
+        } catch (error) {
+          console.error("保存图片到购物车失败:", error);
+        }
       },
     },
   };
