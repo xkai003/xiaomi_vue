@@ -32,18 +32,19 @@
 export default {
 data() {
     return {
-    list: [
-        { id: 1, name: "全部商品分类", url: '/All_products'},
-        { id: 2, name: "Xiaomi手机", url: '/Xiaomi_phone'},
-        { id: 3, name: "REDMI手机" },
-        { id: 4, name: "电视" },
-        { id: 5, name: "笔记本" },
-        { id: 6, name: "平板" },
-        { id: 7, name: "家电" },
-        { id: 8, name: "路由器" },
-        { id: 9, name: "服务中心" },
-        { id: 10, name: "社区" }
-    ]
+        search: '',
+        list: [
+            { id: 1, name: "全部商品分类", url: '/All_products'},
+            { id: 2, name: "Xiaomi手机", url: '/Xiaomi_phone'},
+            { id: 3, name: "REDMI手机" },
+            { id: 4, name: "电视" },
+            { id: 5, name: "笔记本" },
+            { id: 6, name: "平板" },
+            { id: 7, name: "家电" },
+            { id: 8, name: "路由器" },
+            { id: 9, name: "服务中心" },
+            { id: 10, name: "社区" }
+        ]
     };
 }
 };

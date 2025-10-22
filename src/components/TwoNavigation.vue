@@ -19,8 +19,8 @@
         <!-- 搜索框 -->
         <div class="input">
             <div class="input-box">
-                <input type="text">
-                <button>搜索</button>
+                <input type="text" placeholder="热门搜索：Xiaomi15_series、..." v-model="searchdatainp"><!-- v-model="searchdatainp" 双向数据搜索框的内容 -->
+                <button @click="searchdata()">搜索</button><!-- 给按钮添加点击事件 -->
             </div>
         </div>
         <!--  -->
@@ -30,22 +30,32 @@
   
 <script>
 export default {
-data() {
-    return {
-    list: [
-        { id: 1, name: "全部商品分类", url: '/All_products?word=全部商品分类'},
-        { id: 2, name: "Xiaomi手机", url: '/Xiaomi_phone?word=Xiaomi手机'},
-        { id: 3, name: "REDMI手机" , url: '/Xiaomi_phone?word=REDMI手机'},
-        { id: 4, name: "电视" , url: '/Xiaomi_phone?word=电视'},
-        { id: 5, name: "笔记本" , url: '/Xiaomi_phone?word=笔记本'},
-        { id: 6, name: "平板" , url: '/Xiaomi_phone?word=平板'},
-        { id: 7, name: "家电" , url: '/Xiaomi_phone?word=家电'},
-        { id: 8, name: "路由器" , url: '/Xiaomi_phone?word=路由器'},
-        { id: 9, name: "服务中心" , url: '/Xiaomi_phone?word=服务中心'},
-        { id: 10, name: "社区" , url: '/Xiaomi_phone?word=社区'}
-    ]
-    };
-}
+    data() {
+        return {
+            searchdatainp: '',
+            list: [
+                { id: 1, name: "全部商品分类", url: '/All_products?word=全部商品分类'},
+                { id: 2, name: "Xiaomi手机", url: '/Xiaomi_phone?word=Xiaomi手机'},
+                { id: 3, name: "REDMI手机" , url: '/Xiaomi_phone?word=REDMI手机'},
+                { id: 4, name: "电视" , url: '/Xiaomi_phone?word=电视'},
+                { id: 5, name: "笔记本" , url: '/Xiaomi_phone?word=笔记本'},
+                { id: 6, name: "平板" , url: '/Xiaomi_phone?word=平板'},
+                { id: 7, name: "家电" , url: '/Xiaomi_phone?word=家电'},
+                { id: 8, name: "路由器" , url: '/Xiaomi_phone?word=路由器'},
+                { id: 9, name: "服务中心" , url: '/Xiaomi_phone?word=服务中心'},
+                { id: 10, name: "社区" , url: '/Xiaomi_phone?word=社区'}
+            ]
+        };
+    },
+    methods: {
+        // 搜索数据
+        searchdata() {
+            // alert('输入框的内容是：' + this.searchdatainp)
+            console.log(this.searchdatainp)
+            // 路由跳转到搜索的页面
+            this.$router.push(`${this.searchdatainp}`)
+        }
+    }
 };
 </script>
 
