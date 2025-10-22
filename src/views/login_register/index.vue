@@ -135,7 +135,7 @@ const registerUser = () => {
 /* 左边图片 */
 .box .img img{
   height: 100%;
-  width: 350px;
+  width: 100%;
   /* border: 1px solid red; */
 }
 /* 左边图片 end */
