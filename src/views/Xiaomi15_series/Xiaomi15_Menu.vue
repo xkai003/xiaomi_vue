@@ -31,7 +31,7 @@
     <div class="button">
         <div>
             <!-- ✨ 1. [核心修改] 更改点击事件为 addToCart -->
-            <a href="#" class="car" @click="addToCart">加入购物车</a>
+            <a href="#" class="car" @click="addToCart()">加入购物车</a>
             <a href="" class="live" style="">♡喜欢</a>
         </div>
     </div>
@@ -66,48 +66,58 @@ export default {
             // const itemkey = this.item[key]
         },
 
-        // ✨ 2. [核心修改] 新增 addToCart 方法
+        // 加入购物车方法
         addToCart() {
-    // 创建一个数组来存放已选的【选项描述】，用于 alert
-    const selectedOptionsForAlert = [];
-    // ✨ [新增] 创建一个数组来存放已选的【值】，用于生成商品名
-    const selectedValuesForName = [];
+            // 1、先获取本地的 localStorage 的用户信息，判断用户是否已登录
+            const storedUser = localStorage.getItem("userinfo");
+            if (!storedUser) {
+                alert('用户不存在，请先登录！');
+                // 使用 this.$router 而不是 router
+                this.$router.push('/login');
+                return;
+            }
+            if(storedUser != null) {
+                // 创建一个数组来存放已选的【选项描述】，用于 alert
+            const selectedOptionsForAlert = [];
+            // ✨ [新增] 创建一个数组来存放已选的【值】，用于生成商品名
+            const selectedValuesForName = [];
 
-    // 遍历 list 数组中的每一个商品分类
-    for (const item of this.list) {
-        // 获取当前分类选中的 key, 例如 'a1', 'a2'
-        const activeKey = item.activeKey;
-        // 根据 key 获取对应的选中的值, 例如 "Xiaomi 15 Pro"
-        const selectedValue = item[activeKey];
-        
-        // 1. 将完整的描述 "分类: 值" 添加到用于 alert 的数组中
-        selectedOptionsForAlert.push(`${item.span}: ${selectedValue}`);
-        
-        // 2. ✨ [新增] 只将【值】添加到用于生成名称的数组中
-        selectedValuesForName.push(selectedValue);
-    }
+            // 遍历 list 数组中的每一个商品分类
+            for (const item of this.list) {
+                // 获取当前分类选中的 key, 例如 'a1', 'a2'
+                const activeKey = item.activeKey;
+                // 根据 key 获取对应的选中的值, 例如 "Xiaomi 15 Pro"
+                const selectedValue = item[activeKey];
+                
+                // 1. 将完整的描述 "分类: 值" 添加到用于 alert 的数组中
+                selectedOptionsForAlert.push(`${item.span}: ${selectedValue}`);
+                
+                // 2. ✨ [新增] 只将【值】添加到用于生成名称的数组中
+                selectedValuesForName.push(selectedValue);
+            }
 
-    // 使用 alert 显示完整的选择信息
-    const message = "您已选择的商品：\n\n" + selectedOptionsForAlert.join("\n");
-    alert(message);
+            // 使用 alert 显示完整的选择信息
+            const message = "您已选择的商品：\n\n" + selectedOptionsForAlert.join("\n");
+            alert(message);
 
-    // ✨ [核心修改] 将所有选项的值用空格连接起来，作为商品名
-    const productName = selectedValuesForName.join(' ');
+            // ✨ [核心修改] 将所有选项的值用空格连接起来，作为商品名
+            const productName = selectedValuesForName.join(' ');
 
-    // 将已选的商品信息保存到本地
-    const info = {
-        id: 3, // 注意：ID 最好是动态的
-        imge: new URL('/src/assets/index/TwoXiaomi/Xiaomi Buds 5.jpg', import.meta.url).href,
-        name: productName, // ✅ 使用我们刚刚创建的商品名
-        price: this.original_price, // 注意：价格最好也是动态的
-        quantity: 1,
-        isChecked: false
-    }
-    
-    // 这行现在可以正确执行了
-    localStorage.setItem('cartItems', JSON.stringify(info));
-    console.log("商品信息已保存:", info);
-}
+            // 定义变量存储用户选择的商品数据
+            const info = {
+                id: 3, // 注意：ID 最好是动态的
+                imge: new URL('/src/assets/index/TwoXiaomi/Xiaomi Buds 5.jpg', import.meta.url).href,
+                name: productName, // ✅ 使用我们刚刚创建的商品名
+                price: this.original_price, // 注意：价格最好也是动态的
+                quantity: 1,
+                isChecked: false
+            }
+            
+            // 将已选的商品信息保存到本地
+            localStorage.setItem('cartItems', JSON.stringify(info));
+            console.log("商品信息已保存:", info);
+            }
+        }
     },
 }
 </script>
