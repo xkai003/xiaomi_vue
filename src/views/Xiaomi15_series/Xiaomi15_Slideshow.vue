@@ -3,7 +3,7 @@
       <div class="box">
         <img :src="topImgSrc" alt="" id="top-img">
         <div class="imge">
-          <img v-for="(thumb, index) in thumbs" :key="index" :src="thumb" alt="" class="thumb-img" @click="changeImage(thumb)">
+          <img v-for="(thumb, index) in thumbs" :key="index" :src="thumb" alt="" class="thumb-img" @mouseover="changeImage(thumb)">
         </div>
       </div>
     </div>
