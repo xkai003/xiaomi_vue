@@ -50,7 +50,11 @@ export default {
     methods: {
         // 搜索数据
         searchdata() {
-            // alert('输入框的内容是：' + this.searchdatainp)
+            // 如果输入框为空值，就弹窗提示请输入内容
+            if(this.searchdatainp == "") {
+                alert("请输入内容")
+                return;
+            }
             console.log(this.searchdatainp)
             // 路由跳转到搜索的页面
             this.$router.push(`${this.searchdatainp}`)
@@ -134,6 +138,7 @@ export default {
     background-color: rgb(228, 227, 227);
 }
 .TopNavigation .TopNavigation-center .input .input-box button:hover{
+    cursor: pointer;
     background-color: #c2bebe;
 }
 /* input end */
