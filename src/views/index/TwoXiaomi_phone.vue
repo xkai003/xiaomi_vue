@@ -19,7 +19,8 @@
                 </div>
                 <div class="two">
                     <!-- v-for 遍历数组中的内容并渲染 -->
-                    <a href="" v-for="item in list" :key="item.id">
+                    <!-- 使用 :to="getProductUrl(item)" 调用 getProductUrl 方法 动态传递 商品名称给路由 -->
+                    <router-link :to="getProductUrl(item)"  v-for="item in list" :key="item.id">
                         <div>
                             <!-- 拿到数组的img并渲染 -->
                             <img :src="item.logo" alt="Logo">
@@ -27,7 +28,7 @@
                             <span style="font-size: 12px; color:rgb(121, 121, 119); margin-top: 5px;">{{ item.introduce }}</span>
                             <span style="font-size: 15px; color:rgb(241, 128, 36); margin-top: 5px;">{{ item.price }}</span>
                         </div>
-                    </a>
+                    </router-link>
                     <!-- v-for -->
                 </div>
             </div>
@@ -49,6 +50,15 @@ export default {
           { id: 8, name: "Xiaomi 15 定制版", introduce:"徕卡光学 Summilux 高速镜头", price:"4999元起", logo: new URL('/src/assets/index/TwoXiaomi/Xiaomi 15 定制版.jpg', import.meta.url).href,},
         ]
       };
+    },
+    methods: {
+        getProductUrl(product) {
+            // 通过/ProductDetails?参数名 的路由传参的方式把商品数据传递给/ProductDetails页面。
+            return '/ProductDetails?word=' + encodeURIComponent(product.name) + //商品名称
+            '&introduce=' + encodeURIComponent(product.introduce) + //商品说明
+            '&price=' + encodeURIComponent(product.price) + //商品价格
+            '&id=' + product.id; //商品id
+        }
     }
   };
 </script>
