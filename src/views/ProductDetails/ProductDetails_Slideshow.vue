@@ -13,9 +13,9 @@
   export default {
     data() {
       return {
-        topImgSrc: '/Slideshow/Xiaomi15_series/Xiaomi_15_Ultra.jpg', // 默认的大图
+        topImgSrc: this.$route.query.image, // 默认的大图是获取路由中的图片数据
         thumbs: [
-          '/Slideshow/Xiaomi15_series/Xiaomi_15_Ultra.jpg',
+          this.$route.query.image, //获取路由中的图片数据
           '/Slideshow/Xiaomi15_series/Xiaomi_15_Pro.jpg',
           '/Slideshow/Xiaomi15_series/Xiaomi_15.jpg',
           '/Slideshow/Xiaomi15_series/Xiaomi_15_定制版.jpg',
