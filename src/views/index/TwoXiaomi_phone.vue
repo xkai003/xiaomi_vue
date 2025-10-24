@@ -6,7 +6,7 @@
                     <span>手机</span>
                 </div>
                 <div class="two">
-                    <a href="">查看更多</a>
+                    <router-link to="/Xiaomi_phone">查看更多</router-link>
                     <svg t="1741322201572" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2454"><path d="M512 64C264.8 64 64 264.8 64 512s200.8 448 448 448 448-200.8 448-448S759.2 64 512 64zM398.4 784l-45.6-45.6L580 512 353.6 285.6l45.6-45.6 272 272-272.8 272z" p-id="2455"></path></svg>
                 </div>
             </div>
