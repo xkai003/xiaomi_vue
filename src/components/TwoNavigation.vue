@@ -57,7 +57,7 @@ export default {
             }
             console.log(this.searchdatainp)
             // 路由跳转到搜索的页面
-            this.$router.push(`/ProductDetails?id=1&word=${this.searchdatainp}`)
+            this.$router.push(`/ProductDetails?word=${this.searchdatainp}`)
         }
     }
 };
