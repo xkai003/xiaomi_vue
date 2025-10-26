@@ -412,7 +412,7 @@ img{
     /* background-color: #f5a7a7; */
     font-size: 15px;
     max-height: 300px;/* 最大高度 */
-    overflow-x: auto;/* 水平滚动条 */
+    /* overflow-x: auto;水平滚动条 */
     white-space: nowrap;
 }
 .Paymentshow .center .foot button{
