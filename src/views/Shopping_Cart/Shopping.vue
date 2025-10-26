@@ -188,8 +188,15 @@ export default {
     },
     // 结算
     Settlement() {
-      // alert(`结算 ${this.totalCount} 件商品，共计 ${this.totalPrice} 元`);
-      this.Paymentshow = true
+      // 判断是否勾选需要结算的商品
+      if(this.totalCountZero > 0){
+        // 如果勾选了需要结算的商品，就弹出扫码窗口
+        this.Paymentshow = true
+      }
+      else {
+        // 如果没有勾选需要结算的商品，就弹窗提示请勾选需要结算的商品
+        alert("请勾选需要结算的商品")
+      }
     },
     toggle: function(paymentMethod) {
       // 判断当前显示的是哪个支付方式，点击时切换显示
