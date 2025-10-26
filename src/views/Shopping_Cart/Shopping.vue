@@ -70,6 +70,49 @@
         </div>
         <!-- 空车 -->
     </div>
+    <!-- 支付弹窗 -->
+    <div class="Paymentshow" v-show="Paymentshow">
+      <div class="center">
+        <div class="hard">
+          <span>结算信息</span>
+          <button @click="this.Paymentshow = false" class="Closewindows">X</button>
+        </div>
+        <!-- <span>共计{{totalPrice}}元</span> -->
+        <div class="body">
+          <div class="title">
+            <ul>
+              <li>商品名称</li>
+              <li>单价</li>
+              <li>数量</li>
+              <li>小计</li>
+            </ul>
+          </div>
+          <!--  -->
+          <div class="value" v-for="item in defaultArr" :key="item.id">
+            <ul>
+              <li>{{ item.name }}</li>
+              <li>{{ item.price }}</li>
+              <li>{{ item.quantity }}</li>
+              <li>{{ calculateTotal(item) }}元</li>
+            </ul>
+          </div>
+        </div>
+        <div class="foot">
+          <button v-on:click="toggle('weixin')">微信</button>
+          <button v-on:click="toggle('alipay')">支付宝</button>
+
+          <!-- 微信支付图片 -->
+          <div v-if="isShow === 'weixin'">
+              <img src="../../assets/Shopping_Cat/wx_Pay.jpg" alt="微信支付">
+          </div>
+          <!-- 支付宝支付图片 -->
+          <div v-if="isShow === 'alipay'">
+              <img src="../../assets/Shopping_Cat/zfb_Pay.jpg" alt="支付宝支付">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 支付弹窗 -->
 </div>
 </template>
 
@@ -80,6 +123,10 @@ export default {
     const cartItemsFromStorage = JSON.parse(localStorage.getItem("cartItems")) || [];
     console.log("从本地存储获取到的数据：", cartItemsFromStorage);
     return {
+      // 支付弹窗显示/隐藏
+      Paymentshow: false,
+      isShow: 'weixin',
+
       // 将获取到的数据传递到 defaultArr 数组中
       defaultArr: [
         {
@@ -141,7 +188,16 @@ export default {
     },
     // 结算
     Settlement() {
-      alert(`结算 ${this.totalCount} 件商品，共计 ${this.totalPrice} 元`);
+      // alert(`结算 ${this.totalCount} 件商品，共计 ${this.totalPrice} 元`);
+      this.Paymentshow = true
+    },
+    toggle: function(paymentMethod) {
+      // 判断当前显示的是哪个支付方式，点击时切换显示
+      if (this.isShow === paymentMethod) {
+          this.isShow = '';  // 如果点击的支付方式已经显示，隐藏图片
+      } else {
+          this.isShow = paymentMethod;  // 显示选中的支付方式
+      }
     }
   }
 };
@@ -302,4 +358,76 @@ img{
     height: 30px;
 }
 /* 空车 */
+/* 支付弹窗 */
+.Paymentshow{
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background-color:rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* display: none; */
+}
+.Paymentshow .center{
+  width: 50%;
+  /* height: 70%; */
+  background-color: #fff;
+}
+.Paymentshow .center button:hover{
+  cursor: pointer;
+}
+.Paymentshow .center .hard{
+  height: 50px;
+  /* background-color: #e2a8a8; */
+  text-align: center;
+}
+.Paymentshow .center .hard span{
+  font-size: 30px;
+}
+.Paymentshow .center .hard .Closewindows{
+  float: right;
+  width: 50px;
+  height: 100%;
+  border: none;
+  background-color: #fff;
+}
+.Paymentshow .center .body{
+  margin-top: 30px;
+}
+.Paymentshow .center .body ul{
+    /* 去掉li标签的所有格式 */
+    margin: 0;
+    padding: 0;
+    list-style: none;/* 去掉li标签的圆点 */
+    display: flex;
+    flex-direction: row;
+}
+.Paymentshow .center .body ul li{
+    height: 30px;
+    width: 300px;
+    text-align: center;
+    /* background-color: #f5a7a7; */
+    font-size: 15px;
+    max-height: 300px;/* 最大高度 */
+    overflow-x: auto;/* 水平滚动条 */
+    white-space: nowrap;
+}
+.Paymentshow .center .foot button{
+  width: 45%;
+  height: 30px;
+  margin: 10px 0px 10px 30px;
+}
+.Paymentshow .center .foot div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Paymentshow .center .foot div img{
+  width: 50%;
+  height: 100%;
+}
+/* 支付弹窗 */
 </style>
