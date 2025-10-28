@@ -15,7 +15,8 @@
             <span>北京市</span>
             <span>海淀区</span>
             <span>清河街道</span>
-            <a href="">修改</a>
+            <!-- <a href="">修改</a> -->
+            <router-link to="/ShippingAddress">修改</router-link>
         </div>
     </div>
     <!-- product -->

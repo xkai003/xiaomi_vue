@@ -19,6 +19,8 @@ const routes = [
   { path: '/Xiaomi15_series', component: () => import('../views/Xiaomi15_series/index.vue')},
   // 商品详情
   { path: '/ProductDetails', component: () => import('../views/ProductDetails/index.vue')},
+  // 收货地址页
+  { path: '/ShippingAddress', component: () => import('../views/ShippingAddress/index.vue')},
   // 购物车
   { path: '/Shopping_Cart', component: () => import('../views/Shopping_Cart/index.vue')},
   // 全部商品分类
