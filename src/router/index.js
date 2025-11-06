@@ -15,6 +15,8 @@ const routes = [
   { path: '/login', component: () => import('../views/login_register/index.vue')},
   //注册
   { path: '/register', component: () => import('../views/login_register/register.vue')},
+  // 个人中心
+  { path: '/account', component: () => import('../views/Account/index.vue')},
   //Xiaomi15_series
   { path: '/Xiaomi15_series', component: () => import('../views/Xiaomi15_series/index.vue')},
   // 商品详情
