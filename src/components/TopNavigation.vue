@@ -33,6 +33,7 @@
       <div class="right">
         <!-- 如果 localStorage有信息就显示span文本 -->
         <li><router-link to="/account" v-if="user != 'null'">你好，{{ user }}</router-link></li>
+        <li><a hard="" class="logoutbtn" @click="logoutbtn" v-if="user != 'null'">退出</a></li>
         <!-- 如果 localStorage有信息就显示登陆和注册按钮 -->
         <li><router-link to="/login" v-if="user == 'null'">登录</router-link></li>
         <li><router-link to="/register" v-if="user == 'null'">注册</router-link></li>
@@ -51,6 +52,19 @@ export default {
     return {
       user: "null"
     };
+  },
+  methods: {
+    // 退出登录
+    logoutbtn() {
+      if (localStorage.getItem('userinfo')) { // 先检查是否存在
+        localStorage.removeItem('userinfo');
+        alert("退出登录成功");
+        // 重新刷新页面
+        location.reload();
+      } else {
+        alert("用户未登录"); // 或者其他处理
+      }
+    }
   },
   mounted() {
     // 在组件挂载后执行
@@ -127,11 +141,8 @@ export default {
     opacity: 0;  /* 初始隐藏 */
     display: none;/* 移除项目 */
 }
-.TopNavigation .TopNavigation-center .right li span{
-    display: block;
-    color: #fff; 
-    line-height: 20px;
-    font-size:smaller;
+.TopNavigation .TopNavigation-center .right li .logoutbtn:hover{
+    cursor: pointer;
 }
 /* 鼠标悬停时显示二级导航 */
 .TopNavigation li:hover .sub-nav {
