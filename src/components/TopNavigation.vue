@@ -56,14 +56,16 @@ export default {
   methods: {
     // 退出登录
     logoutbtn() {
-      if (localStorage.getItem('userinfo')) { // 先检查是否存在
+      const e = confirm("确定要退出登录吗？")
+      if (e == true) { 
         localStorage.removeItem('userinfo');
-        alert("退出登录成功");
+        // alert("退出登录成功");
         // 重新刷新页面
         location.reload();
       } else {
-        alert("用户未登录"); // 或者其他处理
+        // alert("用户点击了取消按钮"); 
       }
+
     }
   },
   mounted() {
