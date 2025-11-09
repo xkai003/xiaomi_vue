@@ -118,8 +118,6 @@ const registerUser = () => {
 
   // 登陆成功后跳转到官网页
   router.push('/')
-  // 重新刷新页面
-  location.reload();
 };
 </script>
 <style scoped>
