@@ -65,7 +65,6 @@ export default {
       } else {
         // alert("用户点击了取消按钮"); 
       }
-
     }
   },
   mounted() {
