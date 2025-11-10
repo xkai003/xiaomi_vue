@@ -1,8 +1,5 @@
 <template>
   <div class="box">
-    <div class="img">
-        <img src="/src/assets/login/banner.jpg" alt="">
-    </div>
     <div class="two">
       <!-- 导航 -->
       <div class="TwoNavigation">
@@ -29,79 +26,12 @@
         </div>
       </div>
       <!-- 导航 end-->
-      <!-- 登录 -->
-      <div class="form">
-        <div class="form-center">
-          <!-- 标题 -->
-          <router-link to="/login" class="title">登录</router-link>
-          &nbsp;
-          <router-link to="/register" class="title" style="color: red;">注册</router-link>
-          <!-- 输入框 -->
-          <input type="text" class="input" placeholder="请输入用户名" v-model="username">
-          <input type="password" class="input" placeholder="请输入密码" v-model="password">
-          <!-- 条款 -->
-          <div class="tk">
-            <input type="radio" class="radio">
-            <span>已阅读并同意小米账号用户协议和隐私政策</span>
-          </div>
-          <!-- 确认 -->
-          <input type="button" value="注册" class="button" @click="registerUser">
-        </div>
-      </div>
-      <!-- 登录 end-->
-      <!-- 版权 -->
-      <div class="copyright">
-        <span>小米公司版权所有-京ICP备10046444-京公网安备11010802020134号-京ICP证110507号</span>
-      </div>
-       <!-- 版权 end-->
     </div>
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-const router = useRouter();
-
-const username = ref('');
-const password = ref('');
-
-const registerUser = () => {
-  if (!username.value || !password.value) {
-    alert('用户名或密码不能为空！');
-    return;
-  }
-  alert("注册成功，即将跳转到登陆页面")
-  // 存储用户信息
-  const userData = { username: username.value, password: password.value };
-  // localStorage.setItem(username.value, JSON.stringify(userData));
-  localStorage.setItem("userinfo", JSON.stringify(userData));
-  // 跳转到登陆页面
-  router.push('/login')
-  // 清空输入框
-  username.value = '';
-  password.value = '';
-};
-</script>
+<script></script>
 <style scoped>
-/* 大盒子 */
-.box{
-  /* 让元素 覆盖整个屏幕 */
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  /* flex布局，横向排放 */
-  display: flex;
-  flex-direction: row;
-  background-color: rgb(255, 255, 252);
-}
-/* 左边图片 */
-.box .img img{
-  height: 100%;
-  width: 100%;
-  /* border: 1px solid red; */
-}
-/* 左边图片 end */
 /* 右边部分 */
 .box .two{
   width: 100%;
@@ -135,7 +65,7 @@ const registerUser = () => {
   border-radius: 20px;/* 图标边框圆角 */
 }
 /* loge end*/
-/* right *//* right */
+/* right */
 .box .TwoNavigation .right{
     margin-right: 30px;
     /* background-color: #d38d8d; */
@@ -198,60 +128,5 @@ background-color: #f1c1c1;
 }
 /* 二级导航样式 end */
 /* 导航 end */
-
-/* 登录 */
-.box .form{
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* border: 1px solid rgb(182, 182, 179); */
-}
-.box .form .form-center{
-  width: 350px;
-  background-color: #fff;
-  box-shadow:1px 20px 20px -2px rgb(175, 174, 174);/* 边框阴影 */
-  padding: 50px;/* 内边距 */
-}
-.box .form .form-center .title{
-  color: black;
-  font-weight: bold;
-  font-size: 25px;
-  text-decoration: none;
-}
-.box .form .form-center .title:hover{
-  color: red;
-}
-.box .form .form-center .input{
-  width: 100%;
-  height: 50px;
-  margin-top: 20px;
-  background-color: rgba(247, 250, 241, 0.842);
-  border: none;
-}
-.box .form .form-center .tk{
-  margin-top: 20px;
-}
-.box .form .form-center .button{
-  width: 100%;
-  height: 50px;
-  color: #fff;
-  margin-top: 20px;
-  font-size: 20px;
-  border: none;
-  background-color: #f5b641;
-}
-.box .form .form-center .button:hover{
-  background-color: #f89a1f;
-  cursor: pointer; 
-}
-/* 登录 end */
-/* 版权 */
-.copyright{
-  text-align: center;
-  font-size: 15px;
-  margin-bottom: 50px;
-}
-/* 版权 end */
 /* 右边部分 end */
 </style>

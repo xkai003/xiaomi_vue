@@ -173,6 +173,10 @@ const registerUser = () => {
 }
 /* loge end*/
 /* right */
+.box .TwoNavigation .right{
+    margin-right: 30px;
+    /* background-color: #d38d8d; */
+}
 .box .TwoNavigation .right ul{
   list-style: none;/* 去掉li标签的圆点 */
   background-color: #fff;
