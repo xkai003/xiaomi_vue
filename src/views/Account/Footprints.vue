@@ -23,7 +23,7 @@ export default {
     justify-content: center;
 }
 .box .centerbox{
-    width: 80%;
+    width: 60%;
 }
 .box .centerbox span{
   -webkit-text-size-adjust: 100%;/* 禁用自动字体缩放 */
