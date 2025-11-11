@@ -2,9 +2,9 @@
   <div class="nav">
     <ul>
       <li><span>账号管理</span></li>
-      <li><router-link to="/Personal_nformation">个人信息</router-link></li>
-      <li><router-link to="/Change_Password">修改密码</router-link></li>
-      <li><router-link to="/Cancellation_Service">注销服务</router-link></li>
+      <li><router-link to="/Personal_nformation?word=个人信息">个人信息</router-link></li>
+      <li><router-link to="/Change_Password?word=修改密码">修改密码</router-link></li>
+      <li><router-link to="/Cancellation_Service?word=注销服务">注销服务</router-link></li>
     </ul>
     <ul>
       <li><span>订单中心</span></li>

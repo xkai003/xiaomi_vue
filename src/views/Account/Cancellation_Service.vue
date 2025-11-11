@@ -1,6 +1,7 @@
 <template>
   <div>
     <TwoNavigation></TwoNavigation>
+    <Footprints></Footprints>
     <div class="body">
         <div class="center">
           <div class="left">
@@ -18,11 +19,13 @@
 
 <script>
 import TwoNavigation from '/src/components/TwoNavigation.vue';
+import Footprints from './Footprints.vue'
 import Navigation from './Navigation.vue';
 import Boottom_Navigation from './Boottom_Navigation.vue';
 export default {
   components: { 
     TwoNavigation,
+    Footprints,
     Navigation,
     Boottom_Navigation
   },
