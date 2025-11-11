@@ -1,3 +1,4 @@
+import component from 'element-plus/es/components/tree-select/src/tree-select-option.mjs';
 import { createRouter, createWebHistory } from 'vue-router';
 const routes = [
   //如果文件【TopNavigation.vue】中导航的路径为 "Official_Website" 那么就跳转到 '../views/Official_Website/index.vue'文件
@@ -15,8 +16,12 @@ const routes = [
   { path: '/login', component: () => import('../views/login_register/index.vue')},
   //注册
   { path: '/register', component: () => import('../views/login_register/register.vue')},
-  // 个人中心
-  { path: '/account', component: () => import('../views/Account/index.vue')},
+  
+  // 个人中心（个人信息）
+  { path: '/Personal_nformation', component: () => import('../views/Account/Personal_nformation.vue')},// 个人信息
+  { path: '/Change_Password', component: () => import('../views/Account/Change_Password.vue')},// 修改密码
+  { path: '/Cancellation_Service', component: () => import('../views/Account/Cancellation_Service.vue')},// 注销服务
+
   //Xiaomi15_series
   { path: '/Xiaomi15_series', component: () => import('../views/Xiaomi15_series/index.vue')},
   // 商品详情
