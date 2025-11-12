@@ -42,13 +42,16 @@ export default {
 </script>
 
 <style scoped>
-.body .center .left .nav {
+.body .center .left .nav{
   flex: 1; /* Take remaining space */
   overflow: auto;
   /* padding: 36px 0; */
   max-height: 100%;/* 最大高度 */
   overflow-y: auto;/* 垂直滚动条 */
-
+}
+/* 隐藏滚动条 */
+.body .center .left .nav::-webkit-scrollbar{
+  display: none;
 }
 .body .center .left .nav ul{
   /* margin: 0; */
