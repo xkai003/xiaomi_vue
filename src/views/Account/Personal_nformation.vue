@@ -15,7 +15,7 @@
                 <div class="content">
                   <p class="title">你好，{{ user }}</p>
                   <a href="">修改个人信息 > </a>
-                  <router-link to="/ShippingAddress">我的收货地址 ></router-link>
+                  <router-link to="/ShippingAddress">我的收货地址（{{ userAddressesDatalength }}） ></router-link>
                 </div>
               </div>
               <div class="right-hard-right">
@@ -49,6 +49,7 @@ export default {
   data() {
     return {
       user: "null",
+      userAddressesDatalength: "",
       RightBodyBox: [
         { img:"https://s01.mifile.cn/i/user/portal-icon-1.png", title:"待支付的订单：", titlevalue:"0", a:"查看待支付的订单"},
         { img:"https://s01.mifile.cn/i/user/portal-icon-2.png", title:"待收货的订单：", titlevalue:"0", a:"查看待收货的订单"},
@@ -57,27 +58,16 @@ export default {
       ]
     }
   },
-  methods: {
-    // 退出登录
-    logoutbtn() {
-      const e = confirm("确定要退出登录吗？")
-      if (e == true) { 
-        localStorage.removeItem('userinfo');
-        // alert("退出登录成功");
-        // 重新刷新页面
-        location.reload();
-      } else {
-        // alert("用户点击了取消按钮"); 
-      }
-    }
-  },
   mounted() {
     // 在组件挂载后执行
     try {
       // 获取localStorage的数据
-      const userData = JSON.parse(localStorage.getItem("userinfo"));
+      const userData = JSON.parse(localStorage.getItem("userinfo"));//用户信息
       console.log("用户信息", userData?.username);
       this.user = userData?.username || "null";
+      const userAddressesData = JSON.parse(localStorage.getItem("userAddresses"));//用户收货地址
+      console.log("收货地址数量", userAddressesData.length);
+      this.userAddressesDatalength = userAddressesData.length || "0";
     } catch (error) {
       console.error("解析用户信息失败:", error);
       this.user = "null";
