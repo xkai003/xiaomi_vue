@@ -15,7 +15,7 @@
                 <div class="content">
                   <p class="title">你好，{{ user }}</p>
                   <router-link to="/Personal_nformation?word=个人信息">修改个人信息 > </router-link>
-                  <router-link to="/ShippingAddress">我的收货地址（{{ userAddressesDatalength }}） ></router-link>
+                  <router-link to="/ShippingAddress?word=收货地址">我的收货地址（{{ userAddressesDatalength }}） ></router-link>
                 </div>
               </div>
               <div class="right-hard-right">
