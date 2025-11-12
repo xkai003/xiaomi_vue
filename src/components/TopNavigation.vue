@@ -32,7 +32,7 @@
       </div>
       <div class="right">
         <!-- 如果 localStorage有信息就显示span文本 -->
-        <li><router-link to="/Personal_nformation?word=个人信息" v-if="user != 'null'">你好，{{ user }}</router-link></li>
+        <li><router-link to="/Personal_nformation?word=个人信息" class="info" v-if="user != 'null'">你好，{{ user }}</router-link></li>
         <li><a hard="" class="logoutbtn" @click="logoutbtn" v-if="user != 'null'">退出</a></li>
         <!-- 如果 localStorage有信息就显示登陆和注册按钮 -->
         <li><router-link to="/login" v-if="user == 'null'">登录</router-link></li>
@@ -158,7 +158,9 @@ export default {
 }
 /* 二级导航样式 end */
 
-
+.TopNavigation .TopNavigation-center .right .info{
+  width: 100%;
+}
 /* 购物车按钮 */
 .TopNavigation .TopNavigation-center .right .button {
     background-color: rgb(161, 161, 161);
