@@ -294,6 +294,8 @@ onMounted(() => {
   flex: 1;
   background-color: #fff;
   padding: 20px;
+  max-height: 100%;/* 最大高度 */
+  overflow-y: auto;/* 垂直滚动条 */
 }
 
 

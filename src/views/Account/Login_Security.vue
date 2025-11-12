@@ -109,6 +109,8 @@ export default {
   flex: 1;
   background-color: #fff;
   padding: 0px 40px 40px 0px;
+  max-height: 100%;/* 最大高度 */
+  overflow-y: auto;/* 垂直滚动条 */
 }
 .body .center .right .right-title{
   margin-top: 30px;
