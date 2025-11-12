@@ -9,23 +9,17 @@
             <Navigation></Navigation>
           </div>
           <div class="right">
-            <div class="right-title">登录方式</div>
+            <div class="right-title">个人信息</div>
             <div class="right-body">
-              <a href="" v-for="item in dlfs" :key="item.id">
-                <div class="dlfs">
-                  <span>{{ item.span1 }}</span>
-                  <span>{{ item.span2 }}</span>
-                </div>
-              </a>
-            </div>
-            <div class="right-title">账号安全</div>
-            <div class="right-body">
-              <a href="" v-for="item in zhaq" :key="item.id">
-                <div class="dlfs">
-                  <span>{{ item.span1 }}</span>
-                  <span>{{ item.span2 }}</span>
-                </div>
-              </a>
+              <div class="right-body-column">
+                <div class="nickname">头像</div>
+                <div><img src="/src/assets/Account/头像.jpg" alt=""></div>
+              </div>
+              <div class="right-body-column" v-for="item in grxx" :key="item.id">
+                <div class="nickname">{{ item.span1 }}</div>
+                <div>{{ item.span2 }}</div>
+              </div>
+              <button>编辑</button>
             </div>
           </div>
         </div>
@@ -42,34 +36,12 @@ import Boottom_Navigation from './Boottom_Navigation.vue';
 export default {
   data() {
     return {
-      user: "null",
-      userAddressesDatalength: "",
-      dlfs: [
-        { span1: "安全手机", span2:"+86 191****0840 >"},
-        { span1: "安全邮箱", span2:"未设置 >"},
-        { span1: "修改密码", span2:">"},
-        { span1: "第三方账号", span2:">"},
-      ],
-      zhaq: [
-        { span1: "密保问题", span2:">"},
-        { span1: "登陆设备管理", span2:">"},
-        { span1: "双重认证", span2:">"},
+      grxx: [
+        { span1: "昵称", span2:"请设置昵称"},
+        { span1: "性别", span2:"男"},
+        { span1: "小米ID", span2:"888888888"},
+        { span1: "国家/地区", span2:"中国/广东"},
       ]
-    }
-  },
-  mounted() {
-    // 在组件挂载后执行
-    try {
-      // 获取localStorage的数据
-      const userData = JSON.parse(localStorage.getItem("userinfo"));//用户信息
-      console.log("用户信息", userData?.username);
-      this.user = userData?.username || "null";
-      const userAddressesData = JSON.parse(localStorage.getItem("userAddresses"));//用户收货地址
-      console.log("收货地址数量", userAddressesData.length);
-      this.userAddressesDatalength = userAddressesData.length || "0";
-    } catch (error) {
-      console.error("解析用户信息失败:", error);
-      this.user = "null";
     }
   },
   components: { 
@@ -123,24 +95,36 @@ export default {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
+  /* background-color: #e2c5c5; */
+  margin: 40px;
 }
-.body .center .right .right-body a{
-  color: black;
-  font-size: 17px;
-  text-decoration: none;
-}
-.body .center .right .right-body .dlfs{
-  width: 100%;
-  padding: 14px 20px;
-  /* background-color: #fddede; */
+.body .center .right .right-body .right-body-column{
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  padding: 20px 20px;
 }
-.body .center .right .right-body .dlfs span{
-  margin-left: 30px;
-  margin-right: 30px;
+.body .center .right .right-body .right-body-column img{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
 }
-.body .center .right .right-body .dlfs:hover{
-  background-color: #ebebeb;
+.body .center .right .right-body .right-body-column .nickname{
+  width: 30%;
+}
+.body .center .right .right-body button{
+  font-size: 18px;
+  font-weight: 400;
+  width: 40%;
+  height: 60px;
+  line-height: 60px;
+  margin: 30px auto;
+  border: none;
+  text-align: center;
+  color: #fff;
+  background-color: #ff6900;
+}
+.body .center .right .right-body button:hover{
+  cursor: pointer;
+  background-color: #f79854;
 }
 </style>
