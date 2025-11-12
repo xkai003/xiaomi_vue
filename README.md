@@ -57,8 +57,9 @@ src/
 │   ├── ProductDetails/      # 产品详情视图
 │   ├── Shopping_Cart/       # 购物车和结算
 │   ├── All_products/        # 所有产品目录
-│   ├── ShippingAddress/      # 地址管理
-│   └── login_register/      # 认证页面
+│   ├── ShippingAddress/     # 地址管理
+│   ├── login_register/      # 认证页面
+|   ├──  Account             # 个人信息页
 ├── App.vue         # 根组件
 └── main.js        # 应用入口点
 ```
