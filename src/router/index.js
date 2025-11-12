@@ -18,6 +18,7 @@ const routes = [
   { path: '/register', component: () => import('../views/login_register/register.vue')},
   
   // 个人中心（个人信息）
+  { path: '/Personal_Center', component: () => import('../views/Account/Personal_Center.vue')},// 个人中心
   { path: '/Personal_nformation', component: () => import('../views/Account/Personal_nformation.vue')},// 个人信息
   { path: '/Change_Password', component: () => import('../views/Account/Change_Password.vue')},// 修改密码
   { path: '/Cancellation_Service', component: () => import('../views/Account/Cancellation_Service.vue')},// 注销服务
