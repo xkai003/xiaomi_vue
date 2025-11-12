@@ -22,13 +22,14 @@ const routes = [
   { path: '/Personal_nformation', component: () => import('../views/Account/Personal_nformation.vue')},// 个人信息
   { path: '/Change_Password', component: () => import('../views/Account/Change_Password.vue')},// 修改密码
   { path: '/Cancellation_Service', component: () => import('../views/Account/Cancellation_Service.vue')},// 注销服务
+  { path: '/ShippingAddress', component: () => import('../views/Account/ShippingAddress.vue')},// 收货地址
 
   //Xiaomi15_series
   { path: '/Xiaomi15_series', component: () => import('../views/Xiaomi15_series/index.vue')},
   // 商品详情
   { path: '/ProductDetails', component: () => import('../views/ProductDetails/index.vue')},
   // 收货地址页
-  { path: '/ShippingAddress', component: () => import('../views/ShippingAddress/index.vue')},
+  // { path: '/ShippingAddress', component: () => import('../views/ShippingAddress/index.vue')},
   // 购物车
   { path: '/Shopping_Cart', component: () => import('../views/Shopping_Cart/index.vue')},
   // 全部商品分类

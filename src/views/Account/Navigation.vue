@@ -10,7 +10,7 @@
       <li><router-link to="/#">现金券</router-link></li>
       <li><router-link to="/#">喜欢的商品</router-link></li>
       <li><router-link to="/#">优惠券</router-link></li>
-      <li><router-link to="/#">收货地址</router-link></li>
+      <li><router-link to="/ShippingAddress?word=收货地址">收货地址</router-link></li>
       <li><router-link to="/#">红包</router-link></li>
     </ul>
     <ul>

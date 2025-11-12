@@ -26,7 +26,7 @@
                 <span id="Prompt_message"></span>
             </template>
 
-            <router-link to="/ShippingAddress">添加/修改</router-link>
+            <router-link to="/ShippingAddress?word=收货地址">添加/修改</router-link>
         </div>
     </div>
     <!-- product -->
