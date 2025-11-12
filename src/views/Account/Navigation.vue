@@ -8,30 +8,29 @@
     </ul>
     <ul>
       <li><span>订单中心</span></li>
-      <li><router-link to="">我的订单</router-link></li>
-      <li><router-link to="">评价晒单</router-link></li>
-      <li><router-link to="">话费充值订单</router-link></li>
-      <li><router-link to="">以旧换新订单</router-link></li>
+      <li><router-link to="/#">我的订单</router-link></li>
+      <li><router-link to="/#">评价晒单</router-link></li>
+      <li><router-link to="/#">话费充值订单</router-link></li>
+      <li><router-link to="/#">以旧换新订单</router-link></li>
     </ul>
     <ul>
       <li><span>个人中心</span></li>
-      <li><router-link to="">我的个人中心</router-link></li>
-      <li><router-link to="">消息通知</router-link></li>
-      <li><router-link to="">购买资格</router-link></li>
-      <li><router-link to="">现金账户</router-link></li>
-      <li><router-link to="">小米礼品卡</router-link></li>
-      <li><router-link to="">现金券</router-link></li>
-      <li><router-link to="">喜欢的商品</router-link></li>
-      <li><router-link to="">优惠券</router-link></li>
-      <li><router-link to="">收货地址</router-link></li>
-      <li><router-link to="">红包</router-link></li>
-      <li><router-link to=""></router-link></li>
+      <li><router-link to="/#">我的个人中心</router-link></li>
+      <li><router-link to="/#">消息通知</router-link></li>
+      <li><router-link to="/#">购买资格</router-link></li>
+      <li><router-link to="/#">现金账户</router-link></li>
+      <li><router-link to="/#">小米礼品卡</router-link></li>
+      <li><router-link to="/#">现金券</router-link></li>
+      <li><router-link to="/#">喜欢的商品</router-link></li>
+      <li><router-link to="/#">优惠券</router-link></li>
+      <li><router-link to="/#">收货地址</router-link></li>
+      <li><router-link to="/#">红包</router-link></li>
     </ul>
     <ul>
       <li><span>售后服务</span></li>
-      <li><router-link to="">服务记录</router-link></li>
-      <li><router-link to="">申请服务</router-link></li>
-      <li><router-link to="">领取快递报销</router-link></li>
+      <li><router-link to="/#">服务记录</router-link></li>
+      <li><router-link to="/#">申请服务</router-link></li>
+      <li><router-link to="/#">领取快递报销</router-link></li>
     </ul>
   </div>
 </template>
@@ -84,7 +83,9 @@ export default {
 .body .center .left .nav ul li a:hover {
   background-color: #f5f5f5;
 }
-
+.body .center .left .nav ul a.router-link-active{
+  color: orange;
+}
 .body .center .right {
   flex: 1;
   background-color: #fff;
