@@ -9,29 +9,23 @@
             <Navigation></Navigation>
           </div>
           <div class="right">
-            <div class="right-head">
-              <div class="right-hard-left">
-                <img src="/src/assets/Account/头像.jpg" alt="">
-                <div class="content">
-                  <p class="title">你好，{{ user }}</p>
-                  <a href="">修改个人信息 > </a>
-                  <router-link to="/ShippingAddress">我的收货地址（{{ userAddressesDatalength }}） ></router-link>
-                </div>
-              </div>
-              <div class="right-hard-right">
-                <p>账号安全：<span>普通</span></p>
-                <p>绑定手机：<span>191****0840</span></p>
-                <p>绑定邮箱：<span>未绑定</span></p>
-              </div>
-            </div>
+            <div class="right-title">登录方式</div>
             <div class="right-body">
-              <div class="right-body-box" v-for="item in RightBodyBox" :key="item.id">
-                <img :src="item.img" alt="">
-                <div class="content">
-                  <span class="title">{{ item.title }}<span>{{ item.titlevalue }}</span></span>
-                  <a href="">{{ item.a }} > </a>
+              <a href="" v-for="item in dlfs" :key="item.id">
+                <div class="dlfs">
+                  <span>{{ item.span1 }}</span>
+                  <span>{{ item.span2 }}</span>
                 </div>
-              </div>
+              </a>
+            </div>
+            <div class="right-title">账号安全</div>
+            <div class="right-body">
+              <a href="" v-for="item in zhaq" :key="item.id">
+                <div class="dlfs">
+                  <span>{{ item.span1 }}</span>
+                  <span>{{ item.span2 }}</span>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -50,11 +44,16 @@ export default {
     return {
       user: "null",
       userAddressesDatalength: "",
-      RightBodyBox: [
-        { img:"https://s01.mifile.cn/i/user/portal-icon-1.png", title:"待支付的订单：", titlevalue:"0", a:"查看待支付的订单"},
-        { img:"https://s01.mifile.cn/i/user/portal-icon-2.png", title:"待收货的订单：", titlevalue:"0", a:"查看待收货的订单"},
-        { img:"https://s01.mifile.cn/i/user/portal-icon-2.png", title:"待评价商品数：", titlevalue:"0", a:"查看待评价商品数"},
-        { img:"https://s01.mifile.cn/i/user/portal-icon-4.png", title:"喜欢的商品：", titlevalue:"0", a:"查看喜欢的商品"},
+      dlfs: [
+        { span1: "安全手机", span2:"+86 191****0840 >"},
+        { span1: "安全邮箱", span2:"未设置 >"},
+        { span1: "修改密码", span2:">"},
+        { span1: "第三方账号", span2:">"},
+      ],
+      zhaq: [
+        { span1: "密保问题", span2:">"},
+        { span1: "登陆设备管理", span2:">"},
+        { span1: "双重认证", span2:">"},
       ]
     }
   },
@@ -106,74 +105,42 @@ export default {
   background-color: #fff;
   margin-right: 20px;
 }
-.body .center .right {
+.body .center .right{
   flex: 1;
   background-color: #fff;
-  padding: 40px;
+  padding: 0px 40px 40px 0px;
 }
-/* right-head */
-.body .center .right .right-head{
-  height: 30%;
-  /* background-color: #e7c9c9; */
-  border-bottom: 2px solid rgb(245, 243, 243);
-  display: flex;
-  flex-direction: row;
-  color: #757575;
-  font-size: 14px;
-}
-.body .center .right .right-head div{
-  width: 50%;
-}
-.body .center .right .right-head .right-hard-left,
-.body .center .right .right-body .right-body-box{
-  display: flex;
-  flex-direction: row;
-}
-.body .center .right .right-head .right-hard-left img,
-.body .center .right .right-body .right-body-box img{
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-}
-.body .center .right .right-head .right-hard-left .content,
-.body .center .right .right-body .right-body-box .content{
-  display: flex;
-  flex-direction: column;
-  margin-left: 30px;
-  /* background-color: #e9bebe; */
-}
-.body .center .right .right-head .right-hard-left .content .title{
-  font-size: 20px;
+.body .center .right .right-title{
+  margin-top: 30px;
+  margin-left: 10px;
+  padding-left: 5px;
+  border-left: 5px solid blue;
   color: black;
-}
-.body .center .right .right-head .right-hard-left .content a,
-.body .center .right .right-body .right-body-box .content a{
-  text-decoration: none;
-  color: orange;
+  font-size: 19px;
+  font-weight: bold;
 }
 .body .center .right .right-body{
-  padding-top: 30px;
-}
-.body .center .right .right-body div{
-  float: left;
-  width: 50%;
-  height: 200px;
-  /* background-color: #fae5e5; */
-}
-.body .center .right .right-body .right-body-box .content{ 
-  height: 100%;
-  /* background-color: #fff; */
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
-.body .center .right .right-body .right-body-box .content span{
-  margin-top: 30px;
+.body .center .right .right-body a{
+  color: black;
+  font-size: 17px;
+  text-decoration: none;
 }
-.body .center .right .right-body .right-body-box img{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+.body .center .right .right-body .dlfs{
+  width: 100%;
+  padding: 14px 20px;
+  /* background-color: #fddede; */
+  display: flex;
+  justify-content: space-between;
 }
-
-/* right-body end */
+.body .center .right .right-body .dlfs span{
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.body .center .right .right-body .dlfs:hover{
+  background-color: #ebebeb;
+}
 </style>

@@ -14,7 +14,7 @@
                 <img src="/src/assets/Account/头像.jpg" alt="">
                 <div class="content">
                   <p class="title">你好，{{ user }}</p>
-                  <a href="">修改个人信息 > </a>
+                  <router-link to="/Personal_nformation?word=个人信息">修改个人信息 > </router-link>
                   <router-link to="/ShippingAddress">我的收货地址（{{ userAddressesDatalength }}） ></router-link>
                 </div>
               </div>
