@@ -15,6 +15,7 @@
                 <div class="content">
                   <p class="title">你好，{{ user }}</p>
                   <a href="">修改个人信息 > </a>
+                  <router-link to="/ShippingAddress">我的收货地址 ></router-link>
                 </div>
               </div>
               <div class="right-hard-right">
@@ -146,6 +147,8 @@ export default {
 }
 .body .center .right .right-head .right-hard-left .content,
 .body .center .right .right-body .right-body-box .content{
+  display: flex;
+  flex-direction: column;
   margin-left: 30px;
   /* background-color: #e9bebe; */
 }
