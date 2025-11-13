@@ -15,8 +15,11 @@
     </ul>
     <ul>
       <li><span>账号管理</span></li>
-      <li><router-link to="/Personal_nformation?word=个人信息">个人信息</router-link></li>
       <li><router-link to="/Login_Security?word=登录与安全">登录与安全</router-link></li>
+      <li><router-link to="/Personal_nformation?word=个人信息">个人信息</router-link></li>
+      <li><router-link to="/Privacy_Center?word=隐私中心">隐私中心</router-link></li>
+      <li><router-link to="/Binding_Authorization?word=绑定授权">绑定授权</router-link></li>
+      <li><router-link to="/Help_Center?word=帮助中心">帮助中心</router-link></li>
       <li><router-link to="/Change_Password?word=修改密码">修改密码</router-link></li>
       <li><router-link to="/Cancellation_Service?word=注销服务">注销服务</router-link></li>
     </ul>

@@ -20,6 +20,9 @@ const routes = [
   // 个人中心（个人信息）
   { path: '/Personal_Center', component: () => import('../views/Account/Personal_Center.vue')},// 个人中心
   { path: '/Personal_nformation', component: () => import('../views/Account/Personal_nformation.vue')},// 个人信息
+  { path: '/Privacy_Center', component: () => import('../views/Account/Privacy_Center.vue')},// 隐私中心
+  { path: '/Binding_Authorization', component: () => import('../views/Account/Binding_Authorization.vue')},// 绑定授权
+  { path: '/Help_Center', component: () => import('../views/Account/Help_Center.vue')},// 帮助中心
   { path: '/Login_Security', component: () => import('../views/Account/Login_Security.vue')}, // 登录与安全
   { path: '/Change_Password', component: () => import('../views/Account/Change_Password.vue')},// 修改密码
   { path: '/Cancellation_Service', component: () => import('../views/Account/Cancellation_Service.vue')},// 注销服务
