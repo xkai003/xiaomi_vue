@@ -154,16 +154,38 @@ export default {
                 const productName = selectedValuesForName.join(' ');
 
                 const info = {
-                    id: 3, 
+                    id: Date.now(),
                     imge: new URL('/src/assets/index/TwoXiaomi/Xiaomi Buds 5.jpg', import.meta.url).href,
-                    name: productName, 
+                    name: productName,
                     price: this.original_price,
                     quantity: 1,
                     isChecked: false
+                };
+                // 1. 从 localStorage 中读取现有的 'cartItems' 数据
+                const existingCartItemsString = localStorage.getItem('cartItems');
+                // 2. 将 JSON 字符串转换为 JavaScript 数组
+                let cartItems = [];
+                if (existingCartItemsString) {
+                    try {
+                        cartItems = JSON.parse(existingCartItemsString);
+                        // 确保读取到的是一个数组，避免类型错误
+                        if (!Array.isArray(cartItems)) {
+                            console.error("localStorage 中的 cartItems 不是数组，已重置为 []");
+                            cartItems = []; // 如果不是数组，则初始化为空数组，也可以清空 localStorage
+                        }
+                    } catch (error) {
+                        console.error('从 localStorage 解析 cartItems 失败:', error);
+                        cartItems = [];
+                    }
                 }
-                
-                localStorage.setItem('cartItems', JSON.stringify(info));
+                // 3. 将新的商品信息添加到数组中
+                cartItems.push(info);
+                // 4. 将更新后的数组转换为 JSON 字符串
+                const updateCartItemsString = JSON.stringify(cartItems);
+                // 5. 将更新后的 JSON 字符串保存到 localStorage
+                localStorage.setItem('cartItems', updateCartItemsString);
                 console.log("商品信息已保存:", info);
+                console.log("购物车的商品信息已更新:", cartItems); // 可以确认购物车信息
             }
         }
     },

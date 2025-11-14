@@ -119,27 +119,41 @@
 <script>
 export default {
   data() {
-    // 1. 从本地获取数据，如果不存在，则默认为一个空数组 []
-    const cartItemsFromStorage = JSON.parse(localStorage.getItem("cartItems")) || [];
-    console.log("从本地存储获取到的数据：", cartItemsFromStorage);
+    let cartItemsFromStorage = localStorage.getItem("cartItems");
+    // 初始化 defaultArr 为空数组.
+    let defaultArr = [];
+    // 使用 try...catch 块来处理可能的 JSON 解析错误
+    try {
+        // 尝试解析 localStorage 中的数据, 将JSON转化成为数组.如果为空会报语法错误
+        cartItemsFromStorage = JSON.parse(cartItemsFromStorage) || [];
+        // 确保解析的结果是一个数组
+        if (!Array.isArray(cartItemsFromStorage)) {
+            console.error("localStorage中的 cartItems 不是一个数组.  初始化为空数组.");
+            cartItemsFromStorage = []; // 重置为空数组
+        }
+        // 循环遍历 cartItemsFromStorage 数组，将每一个数据都转换成为能够读取的对象
+        defaultArr = cartItemsFromStorage.map(item => ({
+            id: item.id,
+            imge: item.imge,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity,
+            isChecked: false // 假设默认都未选中
+        }));
+    } catch (error) {
+        console.error("解析 localStorage 中的 cartItems 失败:", error);
+        // 如果解析失败，则使用空数组
+        defaultArr = [];
+    }
+    console.log("从本地存储获取到的数据：", defaultArr);
     return {
-      // 支付弹窗显示/隐藏
-      Paymentshow: false,
-      isShow: 'weixin',
-
-      // 将获取到的数据传递到 defaultArr 数组中
-      defaultArr: [
-        {
-          id: cartItemsFromStorage.id,
-          imge: cartItemsFromStorage.imge,
-          name: cartItemsFromStorage.name,
-          price: cartItemsFromStorage.price,
-          quantity: cartItemsFromStorage.quantity,
-          isChecked: false
-        },
-      ]
+        // 支付弹窗显示/隐藏
+        Paymentshow: false,
+        isShow: 'weixin',
+        // 将获取到的数据传递到 defaultArr 数组中
+        defaultArr: defaultArr //  Make sure you return the correct item list
     };
-  },
+},
   computed: {
     // 全选
     isAll: {
@@ -183,9 +197,17 @@ export default {
       return item.price * item.quantity;
     },
     // 删除商品
-    removeItem(id) {
-      this.defaultArr = this.defaultArr.filter(item => item.id !== id);
-    },
+  removeItem(id) {
+    // 1. 使用 filter 方法，创建一个新的数组，该数组不包含要删除的元素
+    this.defaultArr = this.defaultArr.filter(item => item.id !== id);
+    // 2. 获取当前 defaultArr
+    const updatedCartData = this.defaultArr;
+    // 3. 将更新后的 defaultArr 数组转换为JSON字符串
+    const updatedCartDataJSON = JSON.stringify(updatedCartData);
+    // 4. 将更新后的JSON字符串存储到 localStorage
+    localStorage.setItem('cartItems', updatedCartDataJSON);
+    console.log("商品已删除，购物车数据已更新:", this.defaultArr);
+  },
     // 结算
     Settlement() {
       // 判断是否勾选需要结算的商品
