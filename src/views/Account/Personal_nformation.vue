@@ -13,8 +13,8 @@
           <div class="right-body">
             <div class="right-body-column">
               <div class="nickname">头像</div>
-              <!-- <div><img src="/src/assets/Account/头像.jpg" alt=""></div> -->
-              <div><img :src="imageUrl || '/src/assets/Account/头像.jpg'" alt="头像"></div> <!-- show default if image url is null -->
+              <div><img v-if="imageUrl == ''" src="/src/assets/Account/头像.jpg" alt=""></div>
+              <div><img v-if="imageUrl !== ''" :src="imageUrl" alt="头像"></div> <!-- show default if image url is null -->
             </div>
             <div class="right-body-column">
               <div class="nickname">昵称：</div>
@@ -87,7 +87,7 @@ export default {
   data() {
     return {
       isshow: false, // Initially hide the modal
-      imageUrl: '/src/assets/Account/头像.jpg', // preview image
+      imageUrl: '', // preview image
       defaultAvatar: '/src/assets/Account/头像.jpg', //default avatar to display incase imageURL is null
       selectedFile: null, // stores the file metadata such as last modified date and other metadata
       nickname: "1",
