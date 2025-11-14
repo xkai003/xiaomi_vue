@@ -20,7 +20,7 @@
               <p>3.提前保留重要信息</p>
               <p>注销后我们将删除您的个人信息且不可被恢复，请您在操作之前自行备份帐户内所有信息和数据。</p>
               <p>注销小米商城服务，将不会影响到您对其他产品或服务的使用，如果您希望注销小米账号，请</p>
-              <button>确定</button>
+              <button @click="logoutbtn">确定注销</button>
             </div>
           </div>
         </div>
@@ -38,7 +38,19 @@ export default {
   data() {
     return {}
   },
-  mounted() {
+  methods: {
+    // 退出登录
+    logoutbtn() {
+      const e = confirm("确定要注销登录吗？")
+      if (e == true) { 
+        localStorage.removeItem('userinfo');
+        // alert("退出登录成功");
+        // 重新刷新页面
+        location.reload();
+      } else {
+        // alert("用户点击了取消按钮"); 
+      }
+    }
   },
   components: { 
     TwoNavigation,

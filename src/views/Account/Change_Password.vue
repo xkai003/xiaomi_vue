@@ -11,9 +11,9 @@
           <div class="right">
             <div class="right-title">修改密码</div>
             <div class="right-body">
-              <div class="box"><span><span style="color: red;">*</span>账号：</span><input type="text"></div>
-              <div class="box"><span><span style="color: red;">*</span>密码：</span><input type="password"></div>
-              <button>确定</button>
+              <div class="box"><span><span style="color: red;">*</span>账号：</span><input type="text" v-model="user"></div>
+              <div class="box"><span><span style="color: red;">*</span>密码：</span><input type="password" v-model="pwd"></div>
+              <button @click="confirm">确定</button>
             </div>
           </div>
         </div>
@@ -29,9 +29,26 @@ import Navigation from './Navigation.vue';
 import Boottom_Navigation from './Boottom_Navigation.vue';
 export default {
   data() {
-    return {}
+    return {
+        user:"",
+        pwd:""
+    }
   },
-  mounted() {
+ methods: {
+    confirm() {
+      console.log("账号", this.user, "密码", this.pwd);
+      // Store user info in localStorage
+      const userinfo = { username: this.user, password: this.pwd }; // Create new object
+      const userinfoString = JSON.stringify(userinfo); // Serialize to JSON string
+      localStorage.setItem("userinfo", userinfoString); // Store in localStorage
+      // Optional:  Load from localStorage to verify
+      const storedUserinfo = localStorage.getItem("userinfo");
+      if (storedUserinfo) {
+        const parsedUserinfo = JSON.parse(storedUserinfo);
+        console.log("Stored User Info:", parsedUserinfo); // Verify stored data
+      }
+      alert("修改成功")
+    }
   },
   components: { 
     TwoNavigation,
