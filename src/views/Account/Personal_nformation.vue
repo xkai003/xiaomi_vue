@@ -90,10 +90,10 @@ export default {
       imageUrl: '', // preview image
       defaultAvatar: '/src/assets/Account/头像.jpg', //default avatar to display incase imageURL is null
       selectedFile: null, // stores the file metadata such as last modified date and other metadata
-      nickname: "1",
-      gender: "男",
-      xiaomiID: "1",
-      country: "1",
+      nickname: "未设置",
+      gender: "未设置",
+      xiaomiID: "未设置",
+      country: "未设置",
        initialData: {  // Store the original data values that can be reverted to on cancel
            nickname: "1",
            gender: "",
