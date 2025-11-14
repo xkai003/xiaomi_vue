@@ -14,7 +14,7 @@
             <div class="right-body-column">
               <div class="nickname">头像</div>
               <!-- <div><img src="/src/assets/Account/头像.jpg" alt=""></div> -->
-              <div><img :src="imageUrl" alt="头像"></div> <!-- show default if image url is null -->
+              <div><img :src="imageUrl || '/src/assets/Account/头像.jpg'" alt="头像"></div> <!-- show default if image url is null -->
             </div>
             <div class="right-body-column">
               <div class="nickname">昵称：</div>
