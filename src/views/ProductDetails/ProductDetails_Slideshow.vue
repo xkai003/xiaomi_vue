@@ -24,22 +24,39 @@
     },
     methods: {
       changeImage(thumb) {
-        this.topImgSrc = thumb;
-        try {
-          // 获取本地localStorage的数据
-          const cartItemsFromStorage = JSON.parse(localStorage.getItem("cartItems"));
-          
-          // 更新图片信息到购物车数据中
-          cartItemsFromStorage.imge = this.topImgSrc;
-          
-          // 保存回 localStorage
-          localStorage.setItem("cartItems", JSON.stringify(cartItemsFromStorage));
-          
-          console.log("图片已更新到购物车:", this.topImgSrc);
-        } catch (error) {
-          console.error("保存图片到购物车失败:", error);
+    this.topImgSrc = thumb;
+    try {
+      // 1. 从 localStorage 中获取 cartItems 数据
+      const cartItemsString = localStorage.getItem("cartItems");
+      if (cartItemsString) {
+        // 2. 解析 JSON 字符串为 JavaScript 对象/数组
+        let cartItems = JSON.parse(cartItemsString);
+        // 3. 确认 cartItems 是一个数组或者对象
+        if(Array.isArray(cartItems)) {
+             // 如果是数组，遍历数组，更新每个元素的 image
+            cartItems = cartItems.map(item => {
+                item.imge = this.topImgSrc;  //用新的图片URL 更新 每个item的 image
+                return item;
+            });
+        } else if (typeof cartItems === 'object' && cartItems !== null) {
+             // 如果是对象，直接更新 image 属性
+            cartItems.imge = this.topImgSrc;
+        } else {
+           console.error('cartItems is not an array or object:', cartItems);
+           return; // 停止执行
         }
-      },
+        // 4. 将更新后的 cartItems 转换为 JSON 字符串
+        const updatedCartItemsString = JSON.stringify(cartItems);
+        // 5. 将 JSON 字符串保存回 localStorage
+        localStorage.setItem("cartItems", updatedCartItemsString);
+        console.log("图片已更新到购物车:", this.topImgSrc);
+      } else {
+        console.warn("localStorage 中没有 cartItems 数据");
+      }
+    } catch (error) {
+      console.error("保存图片到购物车失败:", error);
+    }
+  },
     },
   };
   </script>
