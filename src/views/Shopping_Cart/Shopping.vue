@@ -94,6 +94,7 @@
           <div v-if="isShow === 'alipay'">
               <img src="../../assets/Shopping_Cat/zfb_Pay.jpg" alt="支付宝支付">
           </div>
+          
         </div>
       </div>
     </div>
