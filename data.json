@@ -1,0 +1,246 @@
+{
+  "carousel": {
+    "images": [
+      "/Slideshow/index/Carousel/1.jpg",
+      "/Slideshow/index/Carousel/2.jpg",
+      "/Slideshow/index/Carousel/3.jpg",
+      "/Slideshow/index/Carousel/4.jpg"
+    ]
+  },
+  "navigation": {
+    "categories": [
+      { "text": "手机", "link": "#" },
+      { "text": "电视", "link": "" },
+      { "text": "家电", "link": "" },
+      { "text": "笔记本 &nbsp; 平板 &nbsp; 显示器", "link": "" },
+      { "text": "出行 &nbsp; 穿戴", "link": "" },
+      { "text": "耳机 &nbsp; 音箱", "link": "" },
+      { "text": "健康 &nbsp; 儿童", "link": "" },
+      { "text": "生活 &nbsp; 箱包", "link": "" },
+      { "text": "智能 &nbsp; 路由器", "link": "" },
+      { "text": "电源 &nbsp; 配件", "link": "" }
+    ]
+  },
+  "products": {
+    "phones": [
+      {
+        "id": 1,
+        "name": "Xiaomi 15 Ultra",
+        "introduce": "保卡1英寸主摄 | 徕卡2亿超级长焦",
+        "price": "6499元起",
+        "image": "/src/assets/index/TwoXiaomi/Xiaomi 15 Ultra.jpg"
+      },
+      {
+        "id": 2,
+        "name": "REDMI Turbo4",
+        "introduce": "REDMI Turbo4 好看有能打",
+        "price": "1999元起",
+        "image": "/src/assets/index/TwoXiaomi/REDMI Turbo4.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Redmi 14C",
+        "introduce": "【持久续航】5160mAh大电池",
+        "price": "499元起",
+        "image": "/src/assets/index/TwoXiaomi/Redmi 14C.jpg"
+      },
+      {
+        "id": 4,
+        "name": "REDMI K80 Pro",
+        "introduce": "骁龙8至尊版|2K新国屏|全焦段影像",
+        "price": "3699元起",
+        "image": "/src/assets/index/TwoXiaomi/REDMI K80 Pro.jpg"
+      },
+      {
+        "id": 5,
+        "name": "REDMI K80",
+        "introduce": "第三代骁龙8|2K新国屏|6550mAh",
+        "price": "2499元起",
+        "image": "/src/assets/index/TwoXiaomi/REDMI K80.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Xiaomi 15",
+        "introduce": "徕卡光学 Summilux 高速镜头",
+        "price": "4499元起",
+        "image": "/src/assets/index/TwoXiaomi/Xiaomi 15.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Xiaomi 15 Pro",
+        "introduce": "徕卡光学 Summilux 高速镜头",
+        "price": "5299元起",
+        "image": "/src/assets/index/TwoXiaomi/Xiaomi 15 Pro.jpg"
+      },
+      {
+        "id": 8,
+        "name": "Xiaomi 15 定制版",
+        "introduce": "徕卡光学 Summilux 高速镜头",
+        "price": "4999元起",
+        "image": "/src/assets/index/TwoXiaomi/Xiaomi 15 定制版.jpg"
+      }
+    ],
+    "computers": [
+      {
+        "id": 1,
+        "name": "Xiaomi Pad 7 Pro",
+        "introduce": "11.2英寸3.2K高清高剧屏",
+        "price": "2399元起",
+        "image": "/src/assets/index/TwoXiaomi/Xiaomi Pad 7 Pro.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Xiaomi Pad 7",
+        "introduce": "11.2英寸3.2K高清高剧屏",
+        "price": "1999元起",
+        "image": "/src/assets/index/TwoXiaomi/Xiaomi Pad 7 Pro.jpg"
+      },
+      {
+        "id": 3,
+        "name": "Redmi Pad Pro系列",
+        "introduce": "12.1英寸2.5K旗舰机大屏|10000mAh.",
+        "price": "1499元起",
+        "image": "/src/assets/index/TwoXiaomi/Redmi Pad Pro系列.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Xiaomi Pad 6S Pro 12.4",
+        "introduce": "第二代骁龙8 旗舰处理器|小米澎湃0S",
+        "price": "2999元起",
+        "image": "/src/assets/index/TwoXiaomi/Xiaomi Pad 6S Pro 12.4.jpg"
+      },
+      {
+        "id": 5,
+        "name": "REDMI Book 16 2025",
+        "introduce": "47W 满血性能|小米澎湃智联",
+        "price": "3999元起",
+        "image": "/src/assets/index/TwoXiaomi/REDMI Book 16 2025.jpg"
+      },
+      {
+        "id": 6,
+        "name": "REDMI Book 14 2025",
+        "introduce": "47W 满血性能|小米澎湃智联",
+        "price": "3899元起",
+        "image": "/src/assets/index/TwoXiaomi/REDMI Book 16 2025.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Redmi Book Pro 14 2024",
+        "introduce": "65W 满血性能|全新酷睿 Ultra 处理器",
+        "price": "4999元起",
+        "image": "/src/assets/index/TwoXiaomi/Redmi Book Pro 14 2024.jpg"
+      },
+      {
+        "id": 8,
+        "name": "Xiaomi 15 定制版",
+        "introduce": "徕卡光学 Summilux 高速镜头",
+        "price": "4999元起",
+        "image": "/src/assets/index/TwoXiaomi/Redmi Book Pro 14 2024.jpg"
+      }
+    ],
+    "wearables": [
+      {
+        "id": 1,
+        "name": "REDMI Watch 5",
+        "introduce": "2.07英寸高刷高亮大屏|24天超长续航",
+        "price": "599元起",
+        "image": "/src/assets/index/TwoXiaomi/REDMI Watch 5.jpg"
+      },
+      {
+        "id": 2,
+        "name": "Xiaomi Watch S4",
+        "introduce": "徕卡光学 Summilux 高速镜头",
+        "price": "199元起",
+        "image": "/src/assets/index/TwoXiaomi/Xiaomi Watch S4.jpg"
+      },
+      {
+        "id": 3,
+        "name": "REDMI Buds 6 Pro",
+        "introduce": "小米首发圈瓷同轴三单元|55dB深度降噪",
+        "price": "399元起",
+        "image": "/src/assets/index/TwoXiaomi/REDMI Buds 6 Pro.jpg"
+      },
+      {
+        "id": 4,
+        "name": "Redmi Buds 6 青春版",
+        "introduce": "42dB深度主动降噪|双麦A通话",
+        "price": "139元起",
+        "image": "/src/assets/index/TwoXiaomi/Redmi Buds 6 青春版.jpg"
+      },
+      {
+        "id": 5,
+        "name": "Redmi Buds 6",
+        "introduce": "旗舰双单元架构|49dB深度降噪",
+        "price": "199元起",
+        "image": "/src/assets/index/TwoXiaomi/Redmi Buds 6.jpg"
+      },
+      {
+        "id": 6,
+        "name": "Xiaomi Buds 5",
+        "introduce": "舒适无感佩戴|高通全链路无损音频",
+        "price": "679元起",
+        "image": "/src/assets/index/TwoXiaomi/Xiaomi Buds 5.jpg"
+      },
+      {
+        "id": 7,
+        "name": "Redmi Buds 6S",
+        "introduce": "14.2mm超大动圈单元|半入耳主动降",
+        "price": "199元起",
+        "image": "/src/assets/index/TwoXiaomi/Redmi Buds 6S.jpg"
+      },
+      {
+        "id": 8,
+        "name": "Redmi Buds 6 活力版",
+        "introduce": "14.2mm超大动圈|内置五种调音模式",
+        "price": "99元起",
+        "image": "/src/assets/index/TwoXiaomi/Redmi Buds 6 活力版.jpg"
+      }
+    ]
+  },
+  "footer": {
+    "services": [
+      {
+        "title": "预约维修服务",
+        "icon": "wrench"
+      },
+      {
+        "title": "七天无理由退货",
+        "icon": "return"
+      },
+      {
+        "title": "15天免费换货",
+        "icon": "exchange"
+      },
+      {
+        "title": "满69包邮",
+        "icon": "shipping"
+      },
+      {
+        "title": "1100余家售后网点",
+        "icon": "location"
+      }
+    ],
+    "links": [
+      {
+        "category": "选购指南",
+        "items": ["手机", "电视", "笔记本", "平板", "穿戴", "耳机", "家电", "路由器", "音箱", "配件"]
+      },
+      {
+        "category": "服务中心",
+        "items": ["申请售后", "售后政策", "维修服务价格", "订单查询", "以旧换新", "保障服务", "防伪查询", "F码通道"]
+      },
+      {
+        "category": "线下门店",
+        "items": ["小米之家", "服务网点", "授权体验店/专区"]
+      },
+      {
+        "category": "关于小米",
+        "items": ["了解小米", "加入小米", "投资者关系", "可持续发展", "廉洁举报"]
+      },
+      {
+        "category": "关于我们",
+        "items": ["新浪微博", "官方微信", "联系我们", "公益基金会"]
+      }
+    ]
+  }
+}
