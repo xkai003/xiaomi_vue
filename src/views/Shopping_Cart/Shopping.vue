@@ -408,27 +408,6 @@ img{
   border: none;
   background-color: #fff;
 }
-.Paymentshow .center .body{
-  margin-top: 30px;
-}
-.Paymentshow .center .body ul{
-    /* 去掉li标签的所有格式 */
-    margin: 0;
-    padding: 0;
-    list-style: none;/* 去掉li标签的圆点 */
-    display: flex;
-    flex-direction: row;
-}
-.Paymentshow .center .body ul li{
-    height: 30px;
-    width: 300px;
-    text-align: center;
-    /* background-color: #f5a7a7; */
-    font-size: 15px;
-    max-height: 300px;/* 最大高度 */
-    /* overflow-x: auto;水平滚动条 */
-    white-space: nowrap;
-}
 .Paymentshow .center .foot button{
   width: 45%;
   height: 30px;
