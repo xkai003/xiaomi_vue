@@ -77,25 +77,10 @@
           <span>结算信息</span>
           <button @click="this.Paymentshow = false" class="Closewindows">X</button>
         </div>
-        <!-- <span>共计{{totalPrice}}元</span> -->
-        <div class="body">
-          <div class="title">
-            <ul>
-              <li>商品名称</li>
-              <li>单价</li>
-              <li>数量</li>
-              <li>小计</li>
-            </ul>
-          </div>
-          <!--  -->
-          <div class="value" v-for="item in defaultArr" :key="item.id">
-            <ul>
-              <li>{{ item.name }}</li>
-              <li>{{ item.price }}</li>
-              <li>{{ item.quantity }}</li>
-              <li>{{ calculateTotal(item) }}元</li>
-            </ul>
-          </div>
+        <div class="hard" style="color: red;">
+          <span>已选:{{ totalCountZero }}</span>
+          &ensp;&ensp;&ensp;
+          <span>总价:{{totalPrice}}元</span>
         </div>
         <div class="foot">
           <button v-on:click="toggle('weixin')">微信</button>
