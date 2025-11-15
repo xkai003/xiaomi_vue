@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-演示地址：https://xiaomi-vue.pages.dev/
+项目地址：https://xiaomi-vue.pages.dev/
 
 ## 项目概述
 
